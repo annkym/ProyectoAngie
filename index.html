@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./jquery-mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="./jquery-mobile-1.4.5/jquery-1.11.3.min.js"></script>
+<script src="./jquery-mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="phonegap.js"></script>
+</head>
+<body>
+
+
+
+<!-- INDEX PAGE-->
+<div data-role="page" id="index">
+  <div data-role="header" data-position="fixed">
+    <h1>My Tour Secrets</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+  	<div align="center">Welcome to My Tour Secrets The Game!!!!<br>
+  	<img src="assets/Map_Mobile.png" alt="My Tour Secrets, The Game!!" style="width:300px;"></div>
+    <a href="#myPopup" data-rel="popup" class="ui-btn ui-corner-all ui-btn ui-icon-user ui-btn-icon-left">Login</a>
+    <a href="#" data-rel="popup" class="ui-btn ui-corner-all ui-btn ui-icon-edit ui-btn-icon-left">Register</a>
+
+    <!--LOGIN POP UP -->
+    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:250px;">
+    	<div data-role="header">
+    		<h3>LOGIN</h3>
+    	</div>
+    	<div data-role="main" class="ui-content">   
+          <img src="assets/blue-35.png" style="width:75px;">
+          <label for="usrnm" class="ui-hidden-accessible">Username:</label>
+          <input type="text" name="user" id="usrnm" placeholder="Username">
+          <label for="pswd" class="ui-hidden-accessible">Password:</label>
+          <input type="password" name="passw" id="pswd" placeholder="Password">
+          <label for="log">Keep me logged in</label>
+          <input type="checkbox" name="login" id="log" value="1" data-mini="true">
+          <a href="#pageone"  class="ui-btn ui-corner-all ui-btn ui-icon-lock ui-btn-icon-left">Log in</a>
+      </div>
+    </div>
+    <!--LOGIN POP UP END -->
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>By MdxLab Ritsumeikan</h1>
+  </div>
+</div> 
+<!-- INDEX PAGE END-->
+
+
+<!-- PAGE 1 -->
+<div data-role="page" id="pageone">
+	<!--HOW PANEL -->
+	<div data-role="panel" id="howPanel"> 
+    	<h2>How to play <img src="assets/textfile.png" style="width:50px;"></h2>
+    	<p> To play you need to select a new quest, choose a route and play</p>
+    	<a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close</a>
+    </div> 
+    <!--HOW PANEL END-->
+  
+  <div data-role="header" data-position="fixed">
+    <a href="#howPanel" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">How?</a>
+    <h1>My Tour Secrets</h1>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-power ui-btn-icon-left">Exit</a>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+  	<h1 style="text-align:center">Hello Explorer!!!<br>
+  		<img src="assets/knapsack.png" style="width:75px;">
+  	</h1>
+  	
+  	<h3 style="text-align:center">What do you want to do next?</h3>
+  
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider">Play</li>
+      <li><a href="#pagethree" data-transition="slide"><img src="assets/map-icon.png">New Quest</a></li>
+      <li><a href="#pagefour" data-transition="slide"><img src="assets/book-icon.png">Continue Quest</a></li>
+      <li data-role="list-divider">Achivements</li>
+      <li><a href="#pagetwo" data-transition="slide"><img src="assets/Cat-Fish-icon.png">View Trophies<span class="ui-li-count">25</span></a></li>
+      <li><a href="#" data-transition="slide"><img src="assets/pad.png">Game Statistics</a></li>
+      <li data-role="list-divider">Tools</li>
+      <li><a href="#" data-transition="slide"><img src="assets/sys1.png">Settings</a></li>
+      <li><a href="#" data-transition="slide"><img src="assets/phone.png">Log Out</a></li>
+    </ul>  
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>By MdxLab Ritsumeikan</h1>
+  </div>
+  
+</div> 
+<!-- PAGE 1 END-->
+
+
+<!-- PAGE 2 -->
+<div data-role="page" id="pagetwo">
+  <div data-role="header">
+  	<a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
+  	<h1>Trophies</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+  	<center><h1>This are your Trophies</h1></center>
+  	<div class="ui-grid-d">
+      <div class="ui-block-a">
+        <a href="#popup1" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow">
+        	<img src="assets/panda.png" alt="Panda Trophy" style="width:25px;" class="ui-li-icon">
+        </a>
+        </div>
+      <div class="ui-block-b">
+        <a href="#popup2" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow">
+        	<img src="assets/dragonball.png" alt="Dragon Ball Trophy" style="width:25px;">
+        </a>
+        </div>
+      <div class="ui-block-c">
+        <a href="#popup3" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow">
+        	<img src="assets/donut.png" alt="Dounut Trophy" style="width:25px;">
+        </a>
+        </div>
+      <div class="ui-block-d">
+        <a href="#popup4" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow">
+        	<img src="assets/bunny.png" alt="Bunny Trophy" style="width:25px;">
+        </a>
+        </div>  
+      <div class="ui-block-e">
+        <a href="#popup5" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow">
+        	<img src="assets/cat.png" alt="Cat Trophy" style="width:25px;">
+        </a>
+      </div>  
+      <div class="ui-block-a">
+        <a href="#popup6" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow">
+        	<img src="assets/mushroom.png" alt="Mushroom Trophy" style="width:25px;">
+        </a>
+        </div>
+      <div class="ui-block-b">
+        <a href="#popup7" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow">
+        	<img src="assets/Emily.png" alt="Emily Trophy" style="width:25px;">
+        </a>
+        </div>
+      <div class="ui-block-c">
+        <a href="#popup8" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow">
+        	<img src="assets/flower.png" alt="Flower Trophy" style="width:25px;">
+        </a>
+        </div>  
+    </div>
+  
+    <!--THROPIES POP UPS -->
+    <div data-role="popup" id="popup1">
+        <div data-role="header">
+    		<h3>Panda Trophy</h3>
+    	</div>
+    	<a href="#pagetwo" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/panda.png" style="width:400px;height:400px;">
+    	<div data-role="footer">
+      		<h1>Achived on August 8th 2015</h1>
+      	</div>
+    </div>
+    
+    <div data-role="popup" id="popup2">
+      <p>Dragon Ball Trophy</p> 
+      <a href="#pagetwo" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/dragonball.png" style="width:400px;height:400px;">
+    </div>
+    
+    <div data-role="popup" id="popup3">
+      <p>Donut Trophy</p> 
+      <a href="#pagetwo" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/donut.png" style="width:400px;height:400px;">
+    </div>
+    
+    <div data-role="popup" id="popup4">
+      <p>Bunny Trophy</p> 
+      <a href="#pagetwo" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/bunny.png" style="width:400px;height:400px;">
+    </div>
+    
+    <div data-role="popup" id="popup5">
+      <p>Cat Trophy</p> 
+      <a href="#pagetwo" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/cat.png" style="width:400px;height:400px;">
+    </div>
+    
+    <div data-role="popup" id="popup6">
+      <p>Mushroom Trophy</p> 
+      <a href="#pagetwo" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/mushroom.png" style="width:400px;height:400px;">
+    </div>
+    
+    <div data-role="popup" id="popup7">
+      <p>Emily Trophy</p> 
+      <a href="#pagetwo" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/Emily.png" style="width:400px;height:400px;">
+    </div>
+    
+    <div data-role="popup" id="popup8">
+      <p>Flower Trophy</p> 
+      <a href="#pagetwo" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/flower.png" style="width:400px;height:400px;">
+    </div>        
+  </div>
+  <!--THROPIES POP UPS END-->
+  
+</div> 
+<!-- PAGE 2 END -->
+
+
+<!-- PAGE 3 -->
+<div data-role="page" id="pagethree">
+
+  <div data-role="header" data-position="fixed">
+    <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
+    <h1>My Tour Secrets</h1>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-power ui-btn-icon-left">Exit</a>
+  </div>
+  <div data-role="main" class="ui-content">
+  <h1 style="text-align:center">Create a New Quest<br>
+  <img src="assets/url.jpg" style="width:75px;">
+  </h1>
+  <h3 style="text-align:center">Please choose a city or place</h3>
+  
+    <div data-role="collapsibleset">
+      <div data-role="collapsible">
+      	<h1>JAPAN <img src="assets/Japan.png" style="width:20px; height:20px;"></h1>
+      	
+      	<ul data-role="listview">
+      		<li><a href="#">Tokyo</a></li>
+      		<li><a href="#">Kyoto</a></li>
+      		<li><a href="#">Osaka</a></li>
+      		<li><a href="#">Ritsumeikan University</a></li>
+      	</ul>
+      </div>
+      <div data-role="collapsible">
+      	<h1>MEXICO <img src="assets/Mexico.png" style="width:20px; height:20px;"></h1>
+      	<ul data-role="listview">
+      		<li><a href="#">Mexico City</a></li>
+      		<li><a href="#">Guadalajara</a></li>
+      		<li><a href="#">Ciudad Universitaria</a></li>
+      	</ul>
+      </div>
+      <div data-role="collapsible">
+      	<h1>USA <img src="assets/USA.png" style="width:20px; height:20px;"></h1>
+      	<ul data-role="listview">
+      		<li><a href="#">New York</a></li>
+      		<li><a href="#">Los Angeles</a></li>
+      		<li><a href="#">Worcester Polytechnic Institute</a></li>
+      	</ul>
+      </div>
+    </div>
+    
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>By MdxLab Ritsumeikan</h1>
+  </div>
+</div> 
+
+<!-- PAGE 4 -->
+
+<div data-role="page" id="pagefour">
+
+  <div data-role="header" data-position="fixed">
+    <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
+    <h1>My Tour Secrets</h1>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-power ui-btn-icon-left">Exit</a>
+  </div>
+  <div data-role="main" class="ui-content">
+  	<h1 style="text-align:center">My Quest<br>
+  	<img src="assets/compass.png" style="width:50px;">
+  	</h1>
+  	<ul data-role="listview" data-inset="true">
+      <li data-role="list-divider">Ritsumeikan University</li>
+      <li><a href="#"><img src="assets/stamp.png">Register</a></li>
+      <li><a href="#" data-transition="slide"><img src="assets/maps.png">Check</a></li>
+      <li><a href="#"><img src="assets/clue.png">Clues</a></li>
+      <li><a href="#"><img src="assets/photo.png">Photo Clues</a></li>
+    </ul>
+    
+    
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>By MdxLab Ritsumeikan</h1>
+  </div>
+</div> 
+
+</body>
+</html>

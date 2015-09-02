@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "jp.ritsumeikan.tourgame"
+        versionCode = "1" 
+        version     = "1.0.0" >
+
+    <name>Find the Tour Secrets</name>
+
+    <description>
+        Tour game for MxdLab. 
+    </description>
+
+    <author href="http://www.ritsumei.ac.jp/gsise/eng/" email="annkym@gmail.com">
+        Angelica Nakayama
+    </author>
+    
+    <preference name="permissions" value="none"/>
+    
+    <icon src="icon.png" />
+    
+    <gap:splash src="splash.png"       gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="splash.png"       gap:platform="android" gap:qualifier="port-mdpi" />
+    <gap:splash src="splash.png"       gap:platform="android" gap:qualifier="port-hdpi" />
+    <gap:splash src="splash.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
+
+    <access origin="*"/>
+    
+    <gap:platform name="android" />
+
+</widget>
