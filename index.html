@@ -6,6 +6,33 @@
 	<script src="./jquery-mobile-1.4.5/jquery-1.11.3.min.js"></script>
 	<script src="./jquery-mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script src="phonegap.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+		    $("#btnLogin").click(function(){
+		        alert("Usuario: " + $("#usrnm").val() + " Password: " + $("#pswd").val());
+		        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            });
+            $("#nombre").load("tmp/usr1.txt")
+            
+        });
+        
+        var onSuccess = function(position) {
+        alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n' +
+          'Altitude: '          + position.coords.altitude          + '\n' +
+          'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + position.coords.heading           + '\n' +
+          'Speed: '             + position.coords.speed             + '\n' +
+          'Timestamp: '         + position.timestamp                + '\n');
+        };
+
+        function onError(error) {
+        	alert('code: '    + error.code    + '\n' +
+        		'message: ' + error.message + '\n');
+        	}
+	</script>
 </head>
 
 <body>
@@ -37,7 +64,7 @@
           <input type="password" name="passw" id="pswd" placeholder="Password">
           <label for="log">Keep me logged in</label>
           <input type="checkbox" name="login" id="log" value="1" data-mini="true" checked="true">
-          <a href="#mainmenu"  class="ui-btn ui-corner-all ui-btn ui-icon-lock ui-btn-icon-left">Log in</a>
+          <a href="#mainmenu" id="btnLogin" class="ui-btn ui-corner-all ui-btn ui-icon-lock ui-btn-icon-left">Log in</a>
       </div>
     </div>
     <!--LOGIN POP UP END -->
@@ -94,6 +121,7 @@
   
   <div data-role="main" class="ui-content">
   	<h1 style="text-align:center">Hello Explorer!!!<br>
+  		<p id="nombre"> Usuario </p>
   		<img src="assets/knapsack.png" style="width:75px;">
   	</h1>
   	
@@ -290,12 +318,13 @@
   	<h1 style="text-align:center">My Quest<br>
   		<img src="assets/compass.png" style="width:50px;">
   	</h1>
+  	<p style="text-align:center">You have cleared <b>2/10</b> checkpoints</p>
   	<ul data-role="listview" data-inset="true">
       <li data-role="list-divider">Ritsumeikan University</li>
-      <li><a href="#"><img src="assets/stamp.png">Register</a></li>
-      <li><a href="#" data-transition="slide"><img src="assets/maps.png">Check</a></li>
       <li><a href="#"><img src="assets/clue.png">Clues</a></li>
       <li><a href="#"><img src="assets/photo.png">Photo Clues</a></li>
+      <li><a href="#" data-transition="slide"><img src="assets/maps.png">Check</a></li>
+      <li><a href="#"><img src="assets/stamp.png">Register</a></li>   
     </ul>
   </div>
 
@@ -323,7 +352,7 @@
   		<img src="assets/rits/accessmap.gif" style="width:300px;">
   		
   		<br>PLAY THIS ?<br>
-  		<a href="#" class="ui-btn ui-corner-all ui-shadow"><img src="assets/games.png" style="width:70px;"></a>
+  		<a href="#continuegame" data-transition="slide" class="ui-btn ui-corner-all ui-shadow"><img src="assets/games.png" style="width:70px;"></a>
   	</h3>
   
     
