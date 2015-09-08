@@ -6,32 +6,47 @@
 	<script src="./jquery-mobile-1.4.5/jquery-1.11.3.min.js"></script>
 	<script src="./jquery-mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script src="phonegap.js"></script>
-	
+	 <style>
+      #map {
+        height: 300px;
+        width: device-width;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
+
 	<script>
 		$(document).ready(function(){
 		    $("#btnLogin").click(function(){
 		        alert("Usuario: " + $("#usrnm").val() + " Password: " + $("#pswd").val());
-		        navigator.geolocation.getCurrentPosition(onSuccess, onError);
             });
             $("#nombre").load("tmp/usr1.txt")
             
-        });
+            $("#mymap").on("pagebeforecreate", function(){
+		        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            });
         
+ 	//Functions       
         var onSuccess = function(position) {
         alert('Latitude: '          + position.coords.latitude          + '\n' +
           'Longitude: '         + position.coords.longitude         + '\n' +
-          'Altitude: '          + position.coords.altitude          + '\n' +
-          'Accuracy: '          + position.coords.accuracy          + '\n' +
-          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-          'Heading: '           + position.coords.heading           + '\n' +
-          'Speed: '             + position.coords.speed             + '\n' +
-          'Timestamp: '         + position.timestamp                + '\n');
+          'Altitude: '          + position.coords.altitude          + '\n');
+          initMap(position.coords.latitude, position.coords.longitude );
         };
 
         function onError(error) {
         	alert('code: '    + error.code    + '\n' +
         		'message: ' + error.message + '\n');
         	}
+        	
+       var map;
+       function initMap(latitude,longitude) {
+       	   map = new google.maps.Map(document.getElementById('map'), {
+       	   		   center: {lat: latitude, lng: longitude},
+       	   		   zoom: 12
+       	   });
+       }
+ });
 	</script>
 </head>
 
@@ -323,7 +338,7 @@
       <li data-role="list-divider">Ritsumeikan University</li>
       <li><a href="#"><img src="assets/clue.png">Clues</a></li>
       <li><a href="#"><img src="assets/photo.png">Photo Clues</a></li>
-      <li><a href="#" data-transition="slide"><img src="assets/maps.png">Check</a></li>
+      <li><a href="#mymap" data-transition="slide"><img src="assets/maps.png">Check</a></li>
       <li><a href="#"><img src="assets/stamp.png">Register</a></li>   
     </ul>
   </div>
@@ -348,20 +363,41 @@
   	<h1 style="text-align:center">
   		<img src="assets/rits/logoRits.gif">
   	</h1>
-  	<h3 style="text-align:center">This is the Ritsumeikan BKC tour<br>	
+  	<h3 style="text-align:center">This is the Ritsumeikan BKC TOUR<br>	
   		<img src="assets/rits/accessmap.gif" style="width:300px;">
   		
   		<br>PLAY THIS ?<br>
   		<a href="#continuegame" data-transition="slide" class="ui-btn ui-corner-all ui-shadow"><img src="assets/games.png" style="width:70px;"></a>
   	</h3>
-  
-    
+  </div>
 
   <div data-role="footer" data-position="fixed">
     <h1>By MdxLab Ritsumeikan</h1>
   </div>
 </div> 
-<!-- NEW GAME END-->
+<!--RITSUMEIKAN END-->
+
+<!-- MY MAP -->
+<div data-role="page" id="mymap">
+
+  <div data-role="header" data-position="fixed">
+    <a href="#mainmenu" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
+    	<h1>My Tour Secrets</h1>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-power ui-btn-icon-left">Exit</a>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+  	<h3 style="text-align:center">My Map<br>	
+  	</h3>
+  	<div id="map"></div>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>By MdxLab Ritsumeikan</h1>
+  </div>
+</div> 
+<!--MY MAP END-->
+
 
 </body>
 </html>
