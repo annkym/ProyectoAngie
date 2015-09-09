@@ -22,7 +22,9 @@
             });
             $("#nombre").load("tmp/usr1.txt")
             
-            $("#mymap").on("pagebeforecreate", function(){
+            
+            $("#lnkCheck").click(function(){
+            	alert("Entrando a la pagina");
 		        navigator.geolocation.getCurrentPosition(onSuccess, onError);
             });
         
@@ -43,7 +45,7 @@
        function initMap(latitude,longitude) {
        	   map = new google.maps.Map(document.getElementById('map'), {
        	   		   center: {lat: latitude, lng: longitude},
-       	   		   zoom: 12
+       	   		   zoom: 15
        	   });
        }
  });
@@ -338,7 +340,7 @@
       <li data-role="list-divider">Ritsumeikan University</li>
       <li><a href="#"><img src="assets/clue.png">Clues</a></li>
       <li><a href="#"><img src="assets/photo.png">Photo Clues</a></li>
-      <li><a href="#mymap" data-transition="slide"><img src="assets/maps.png">Check</a></li>
+      <li><a href="#mymap" data-transition="slide" id="lnkCheck"><img src="assets/maps.png">Check</a></li>
       <li><a href="#"><img src="assets/stamp.png">Register</a></li>   
     </ul>
   </div>
