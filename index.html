@@ -12,8 +12,10 @@
         width: device-width;
       }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&callback=initMap"
         async defer></script>
+        
+
 
 	<script>
 		$(document).ready(function(){
@@ -24,7 +26,7 @@
             
             
             $("#lnkCheck").click(function(){
-            	alert("Entrando a la pagina");
+            	//alert("Entrando a la pagina");
 		        navigator.geolocation.getCurrentPosition(onSuccess, onError);
             });
         
@@ -47,6 +49,60 @@
        	   		   center: {lat: latitude, lng: longitude},
        	   		   zoom: 15
        	   });
+       	   
+       	   var point = {lat: 34.979130, lng: 135.970122};
+       	   
+       	   var marker = new google.maps.Marker({
+       	   		   position: {lat: latitude, lng: longitude},
+       	   		   map: map,
+       	   		   title: 'Now I am here!'
+       	   });
+    
+       	   
+       	   var nextPoint = new google.maps.LatLng(34.979536,135.9643038, true);
+       	   
+       	   //var nextPoint = new google.maps.LatLng(34.979130, 135.970122, true); //Aoyama
+       	   
+       	   //var point3 = new google.maps.LatLng(34.9946542,135.9501618, true);  //Lawson
+       	   
+       	   //var creacore = new google.maps.LatLng(34.979536,135.9643038, true);  //Creation core
+       	   
+       	   //35.003747,135.947232  // minami kusatsu
+       	   
+       	   var mapDis = Math.round(google.maps.geometry.spherical.computeDistanceBetween(marker.getPosition(), nextPoint));
+       	   
+       	   if(mapDis > 1000) {
+       	   	   alert("Distance to point is " + mapDis + " m.");
+       	   } else {
+       	   	   if (mapDis < 100){
+       	   	   	   alert("Congratulations!!! you found the spot");
+       	   	   	   var image = "assets/Star.png";
+       	   	   	   var checkpoint = new google.maps.Marker({
+       	   		   position: nextPoint,
+       	   		   map: map,
+       	   		   icon: image,
+       	   		   title: 'Check point!!!'
+       	   });
+       	   	   } else {
+       	   	   	   alert("Your point is on the red circled area!!!");
+       	   	   	   var cityCircle = new google.maps.Circle({
+       	   		   strokeColor: '#FF0000',
+       	   		   strokeOpacity: 0.8,
+       	   		   strokeWeight: 2,
+       	   		   fillColor: '#FF0000',
+       	   		   fillOpacity: 0.35,
+       	   		   map: map,
+       	   		   center: marker.getPosition(),
+       	   		   radius: mapDis * 2
+       	   		   });
+       	   	   }
+       	   	   
+       	   }
+       	   
+       	   
+       	   
+       	   
+
        }
  });
 	</script>
