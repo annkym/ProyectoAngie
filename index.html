@@ -8,74 +8,103 @@
 	<script src="phonegap.js"></script>
 	 <style>
       #map {
-        height: 300px;
+        height: 400px;
         width: device-width;
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&callback=initMap"
         async defer></script>
         
-
+    <script type="text/javascript" src="tmp/data.json"></script>
 
 	<script>
 		$(document).ready(function(){
+			//Login button
 		    $("#btnLogin").click(function(){
-		        alert("Usuario: " + $("#usrnm").val() + " Password: " + $("#pswd").val());
+		    	var myusr = JSON.parse(user);
+		    	if (myusr[0].usr == $("#usrnm").val() && myusr[0].pwd == $("#pswd").val()){
+		    		alert("Welcome " + myusr[0].name);
+		    		$( ":mobile-pagecontainer" ).pagecontainer( "change", "#mainmenu" );
+		    	} else {
+		    		alert("Sorry user or password incorrect \nPlease try again");
+		    	}
             });
+            
+            //Name label
             $("#nombre").load("tmp/usr1.txt")
             
-            
+            //Map enter
             $("#lnkCheck").click(function(){
             	//alert("Entrando a la pagina");
 		        navigator.geolocation.getCurrentPosition(onSuccess, onError);
             });
         
  	//Functions       
+ 		//Geolocation On sucess 
         var onSuccess = function(position) {
-        alert('Latitude: '          + position.coords.latitude          + '\n' +
-          'Longitude: '         + position.coords.longitude         + '\n' +
-          'Altitude: '          + position.coords.altitude          + '\n');
+        //alert('Latitude: '          + position.coords.latitude          + '\n' +
+        //  'Longitude: '         + position.coords.longitude         + '\n');
+
           initMap(position.coords.latitude, position.coords.longitude );
         };
 
+        //Geolocation On error
         function onError(error) {
         	alert('code: '    + error.code    + '\n' +
         		'message: ' + error.message + '\n');
         	}
-        	
+       
+       //Google maps api Map load 	
        var map;
        function initMap(latitude,longitude) {
        	   map = new google.maps.Map(document.getElementById('map'), {
-       	   		   center: {lat: latitude, lng: longitude},
-       	   		   zoom: 15
+       	       center: {lat: latitude, lng: longitude},
+       	       zoom: 10
        	   });
-       	   
-       	   var point = {lat: 34.979130, lng: 135.970122};
        	   
        	   var marker = new google.maps.Marker({
-       	   		   position: {lat: latitude, lng: longitude},
-       	   		   map: map,
-       	   		   title: 'Now I am here!'
+       	       position: {lat: latitude, lng: longitude},
+       	   	   map: map,
+       	       title: 'Now I am here!'
        	   });
-    
        	   
-       	   var nextPoint = new google.maps.LatLng(34.979536,135.9643038, true);
+       	   var mycurrent = JSON.parse(current);
+       	   var nextIndex = mycurrent[0].index;
+       	   var mydata = JSON.parse(points);
+		   alert(mydata[nextIndex].place + " " + mydata[nextIndex].lat + " " + mydata[nextIndex].lng);
        	   
-       	   //var nextPoint = new google.maps.LatLng(34.979130, 135.970122, true); //Aoyama
+       	   var nextPoint = new google.maps.LatLng(mydata[nextIndex].lat,mydata[nextIndex].lng, true);
        	   
-       	   //var point3 = new google.maps.LatLng(34.9946542,135.9501618, true);  //Lawson
+       	   var tmp = new google.maps.Marker({
+       	   		   position: nextPoint,
+       	   		   map: map,
+       	   		   title: 'This is the spot!!'
+       	   });
        	   
-       	   //var creacore = new google.maps.LatLng(34.979536,135.9643038, true);  //Creation core
+       	   tmp.setMap(null);
        	   
-       	   //35.003747,135.947232  // minami kusatsu
        	   
        	   var mapDis = Math.round(google.maps.geometry.spherical.computeDistanceBetween(marker.getPosition(), nextPoint));
        	   
        	   if(mapDis > 1000) {
-       	   	   alert("Distance to point is " + mapDis + " m.");
+       	   	   alert("Distance to point is " + mapDis.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " m. \nKeep going!!!");
+       	   	   map.setZoom(15);
+       	   	   //var lineSymbol = {
+       	   	   //	   path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+       	   	   //};
+       	   	   //var line = new google.maps.Polyline({
+       	   	   //		   path: [marker.getPosition(), nextPoint],
+       	   	   //		   icons: [{
+       	   	   //		   		   icon: lineSymbol,
+       	   	   //		   		   offset: '100%'
+       	   	   //		   }],
+       	   	   //		   map: map
+       	   	   //});
+       	   	   
        	   } else {
        	   	   if (mapDis < 100){
-       	   	   	   alert("Congratulations!!! you found the spot");
+       	   	   	   alert("Congratulations!!! you found the spot ");
+       	   	   	   map.setZoom(18);
        	   	   	   var image = "assets/Star.png";
        	   	   	   var checkpoint = new google.maps.Marker({
        	   		   position: nextPoint,
@@ -84,7 +113,9 @@
        	   		   title: 'Check point!!!'
        	   });
        	   	   } else {
-       	   	   	   alert("Your point is on the red circled area!!!");
+       	   	   	   alert("Your point is on the red circle !!!  Just " + mapDis + " m. ahead...");
+       	   	   	   map.setZoom(13);
+       	   	   	   var r = 1 + Math.random();
        	   	   	   var cityCircle = new google.maps.Circle({
        	   		   strokeColor: '#FF0000',
        	   		   strokeOpacity: 0.8,
@@ -93,7 +124,7 @@
        	   		   fillOpacity: 0.35,
        	   		   map: map,
        	   		   center: marker.getPosition(),
-       	   		   radius: mapDis * 2
+       	   		   radius: mapDis * (r)
        	   		   });
        	   	   }
        	   	   
@@ -104,6 +135,7 @@
        	   
 
        }
+       
  });
 	</script>
 </head>
@@ -137,7 +169,7 @@
           <input type="password" name="passw" id="pswd" placeholder="Password">
           <label for="log">Keep me logged in</label>
           <input type="checkbox" name="login" id="log" value="1" data-mini="true" checked="true">
-          <a href="#mainmenu" id="btnLogin" class="ui-btn ui-corner-all ui-btn ui-icon-lock ui-btn-icon-left">Log in</a>
+          <a href="#" id="btnLogin" class="ui-btn ui-corner-all ui-btn ui-icon-lock ui-btn-icon-left">Log in</a>
       </div>
     </div>
     <!--LOGIN POP UP END -->
@@ -439,15 +471,18 @@
 <div data-role="page" id="mymap">
 
   <div data-role="header" data-position="fixed">
-    <a href="#mainmenu" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
+    <a href="#continuegame" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
     	<h1>My Tour Secrets</h1>
     <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-power ui-btn-icon-left">Exit</a>
   </div>
   
   <div data-role="main" class="ui-content">
-  	<h3 style="text-align:center">My Map<br>	
+  	<h3 style="text-align:center">My Map
+  	
+  	<br>	
   	</h3>
   	<div id="map"></div>
+  	
   </div>
 
   <div data-role="footer" data-position="fixed">

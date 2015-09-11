@@ -1,0 +1,3 @@
+user = '[{"usr" : "annkym", "pwd" : "hola123", "name" : "Angie Nakayama"}]';
+points = '[{"place" : "Creation Core", "lat" : "34.979536", "lng" : "135.9643038"},{"place" : "Ritsumeikan", "lat" : "34.9849855", "lng" : "135.9646833"},{"place" : "Minami Kusatsu", "lat" : "35.003747", "lng" : "135.947232"},{"place" : "Aoyama", "lat" : "34.979130", "lng" : "135.970122"},{"place" : "Lawson", "lat" : "34.9946542", "lng" : "135.9501618"}]';
+current= '[{"index" : "3"}]';
