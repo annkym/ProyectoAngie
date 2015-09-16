@@ -34,12 +34,28 @@
             $("#nombre").load("tmp/usr1.txt")
             
             //Map enter
-            $("#lnkCheck").click(function(){
-            	//alert("Entrando a la pagina");
-		        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            $("#lnkCheck").click(myPlace);
+            //Map enter
+            $("#lnkRefreshMap").click(myPlace);
+            
+            $("#btnNewClue").click(function(){
+            		$("#clueText ul").append('<li>It\'s located in the hills of eastern Kyoto at the site of a waterfall that is considered sacred.</li>');
+            		
             });
         
+            $("#btnNewPhotoClue").click(function(){
+            		$("#photoClue ul").append('<li><img src="assets/kyoto/Kiyomizu1.jpg" style="width:300px;"></li>');
+            });
+            
+            
  	//Functions       
+ 	
+ 		//Locate my Position with geolocation
+ 		function myPlace(){
+            	//alert("Entrando a la pagina");
+		        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
+        
  		//Geolocation On sucess 
         var onSuccess = function(position) {
         //alert('Latitude: '          + position.coords.latitude          + '\n' +
@@ -378,7 +394,7 @@
       	
       	<ul data-role="listview">
       		<li><a href="#">Tokyo</a></li>
-      		<li><a href="#">Kyoto</a></li>
+      		<li><a href="#kyoto" data-transition="slide">Kyoto</a></li>
       		<li><a href="#">Osaka</a></li>
       		<li><a href="#ritsumeikan" data-transition="slide">Ritsumeikan University</a></li>
       	</ul>
@@ -426,7 +442,7 @@
   	<p style="text-align:center">You have cleared <b>2/10</b> checkpoints</p>
   	<ul data-role="listview" data-inset="true">
       <li data-role="list-divider">Ritsumeikan University</li>
-      <li><a href="#"><img src="assets/clue.png">Clues</a></li>
+      <li><a href="#clues" data-transition="slide"><img src="assets/clue.png">Clues</a></li>
       <li><a href="#"><img src="assets/photo.png">Photo Clues</a></li>
       <li><a href="#mymap" data-transition="slide" id="lnkCheck"><img src="assets/maps.png">Check</a></li>
       <li><a href="#"><img src="assets/stamp.png">Register</a></li>   
@@ -467,6 +483,89 @@
 </div> 
 <!--RITSUMEIKAN END-->
 
+
+
+
+<!-- KYOTO -->
+<div data-role="page" id="kyoto">
+
+  <div data-role="header" data-position="fixed">
+    <a href="#newgame" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
+    	<h1>My Tour Secrets</h1>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-power ui-btn-icon-left">Exit</a>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+  	<h1 style="text-align:center">
+  		Kyoto
+  	</h1>
+  	<h3 style="text-align:center">This is the  KYOTO TOUR<br>	
+  		<img src="assets/kyoto/Kyoto.jpg" style="width:300px;">
+  		
+  		<br>PLAY THIS ?<br>
+  		<a href="#continuekyoto" data-transition="slide" class="ui-btn ui-corner-all ui-shadow"><img src="assets/games.png" style="width:70px;"></a>
+  	</h3>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>By MdxLab Ritsumeikan</h1>
+  </div>
+</div> 
+<!--KYOTO END-->
+
+
+<!-- Kyoto GAME -->
+<div data-role="page" id="continuekyoto">
+
+  <div data-role="header" data-position="fixed">
+    <a href="#mainmenu" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
+	    <h1>My Tour Secrets</h1>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-power ui-btn-icon-left">Exit</a>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+  	<h1 style="text-align:center">Kyoto Tour<br>
+  		<img src="assets/compass.png" style="width:50px;">
+  	</h1>
+  	<p style="text-align:center">You have cleared <b>2/10</b> checkpoints</p>
+  	<a href="#" id='btnNewClue' data-rel="popup" data-position-to="window" class="ui-btn ui-icon-info ui-corner-all ui-shadow ui-btn-inline ui-btn-icon-left">New Clue</a>
+  	<a href="#" id='btnNewPhotoClue'data-rel="popup" data-position-to="window" class="ui-btn ui-icon-camera ui-corner-all ui-shadow ui-btn-inline ui-btn-icon-left">Photo Clue</a>
+  	<a href="#mymap" data-transition="slide" id="lnkCheck" class="ui-btn ui-corner-all ui-shadow ui-btn-inline"><img src="assets/maps.png" style="width:30px;"></a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline"><img src="assets/stamp.png" style="width:30px;"></a>
+  
+  	<div data-role="collapsible" data-collapsed="false">
+      <h1><img src="assets/clue.png" style="width:50px;"></h1>
+      <p><div id="clueText">
+  	    <ul>
+  			<li>This is one of the largest and oldest temple complexes in Kyoto founded in 778.
+  			
+  		</ul>
+  	  </div></p>
+    </div>
+    
+    <div data-role="collapsible" data-collapsed="false">
+      <h1><img src="assets/photo.png" style="width:50px;"></h1>
+      <p><div id="photoClue">
+  	    <ul>
+  			
+  		</ul>
+  	  </div></p>
+    </div>
+    
+ 
+      
+
+       
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h1>By MdxLab Ritsumeikan</h1>
+  </div>
+</div> 
+<!-- Kyoto GAME -->
+
+
+
 <!-- MY MAP -->
 <div data-role="page" id="mymap">
 
@@ -477,8 +576,7 @@
   </div>
   
   <div data-role="main" class="ui-content">
-  	<h3 style="text-align:center">My Map
-  	
+  	<h3 style="text-align:center">My Map <a href="#myMap" id="lnkRefreshMap" class="ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-notext ui-btn-inline">Refresh</a>
   	<br>	
   	</h3>
   	<div id="map"></div>
