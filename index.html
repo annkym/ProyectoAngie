@@ -36,19 +36,19 @@
             });
             
             //Map enter
-            $("#lnkCheck").click(myPlace);
+            $("#btnOkGPSClue").click(myPlace);
             //Map enter
             $("#lnkRefreshMap").click(myPlace);
             
             //New Clue button
-            $("#btnNewClue").click(function(){
+            $("#btnOkClue").click(function(){
             		$("#clueText ul").append('<li>It\'s located in the hills of eastern Kyoto at the site of a waterfall that is considered sacred.</li>');
             		//This clues will be loaded from a file or database
             });
             
             //New Photo Clue button
-            $("#btnNewPhotoClue").click(function(){
-            		$("#photoClue ul").append('<li><img src="assets/kyoto/Kiyomizu1.jpg" style="width:300px;"></li>');
+            $("#btnOkPhotoClue").click(function(){
+            		$("#photoClue ul").append('<li><img src="assets/kyoto/Kiyomizu1.jpg" style="width:250px;"></li>');
             		//This photo clues will be loaded from a file or database
             });
             
@@ -295,7 +295,7 @@
       <li><a href="#" data-transition="slide"><img src="assets/pad.png">Game Statistics</a></li>
       <li data-role="list-divider">Tools</li>
       <li><a href="#" data-transition="slide"><img src="assets/sys1.png">Settings</a></li>
-      <li><a href="#index" data-transition="flow"><img src="assets/phone.png">Log Out</a></li>
+      <li><a href="#index" data-transition="flow"><img src="assets/logout.png">Log Out</a></li>
     </ul>  
   </div>
 
@@ -369,13 +369,13 @@
   </div>
   
   <div data-role="main" class="ui-content">
-  	<h2 style="text-align:center"><img src="assets/compass.png" style="width:75px;" align="left">My Quests</h2>
+  	<h2 style="text-align:center"><img src="assets/skymap.png" style="width:75px;" align="left">My Quests</h2>
   	<p style="text-align:center">You are now playing <b>2</b> quests<br>Please select one to continue playing</p>
   	<p>You have <b>25 <img src="assets/stari.png" style="width:20px;">'s</b></p>
   	<ul data-role="listview" data-inset="true">
       <li data-role="list-divider">Now playing</li>
+      <li><a href="#continuekyoto" data-transition="slide"><img src="assets/kyoto/Kyoto.jpg">Kyoto</a></li>
       <li><a href="#" data-transition="slide"><img src="assets/rits/accessmap.gif">Ritsumeikan University</a></li>
-      <li><a href="#" data-transition="slide"><img src="assets/kyoto/Kyoto.jpg">Kyoto</a></li>
     </ul>
   </div>
 
@@ -465,41 +465,79 @@
     </div>
     
     <div data-role="popup" id="popup2">
-      <p>Dragon Ball Trophy</p> 
+      <div data-role="header">
+      	<h3>Dragon Ball Trophy</h3> 
+      </div>
       <a href="#trophies" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/dragonball.png" style="width:400px;height:400px;">
+      <div data-role="footer">
+      		<h1>Achived on August 11th 2015</h1>
+      	</div>
     </div>
     
     <div data-role="popup" id="popup3">
-      <p>Donut Trophy</p> 
+      <div data-role="header">
+      	<h3>Donut Trophy</h3> 
+      </div>
       <a href="#trophies" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/donut.png" style="width:400px;height:400px;">
+      <div data-role="footer">
+      	<h1>Achived on August 15th 2015</h1>
+      </div>
     </div>
     
     <div data-role="popup" id="popup4">
-      <p>Bunny Trophy</p> 
+      <div data-role="header">
+        <h3>Bunny Trophy</h3> 
+      </div>
       <a href="#trophies" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/bunny.png" style="width:400px;height:400px;">
+      <div data-role="footer">
+      	<h1>Achived on August 20th 2015</h1>
+      </div>
     </div>
     
     <div data-role="popup" id="popup5">
-      <p>Cat Trophy</p> 
+      <div data-role="header">
+        <h3>Cat Trophy</h3> 
+      </div>
       <a href="#trophies" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/cat.png" style="width:400px;height:400px;">
+      <div data-role="footer">
+      	<h1>Achived on August 23th 2015</h1>
+      </div>
     </div>
     
     <div data-role="popup" id="popup6">
-      <p>Mushroom Trophy</p> 
+      <div data-role="header">
+        <h3>Mushroom Trophy</h3> 
+      </div>
       <a href="#trophies" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/mushroom.png" style="width:400px;height:400px;">
+      <div data-role="footer">
+      	<h1>Achived on August 30th 2015</h1>
+      </div>
     </div>
     
     <div data-role="popup" id="popup7">
-      <p>Emily Trophy</p> 
+      <div data-role="header">
+        <h3>Emily Trophy</h3> 
+      </div>
       <a href="#trophies" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/Emily.png" style="width:400px;height:400px;">
+      <div data-role="footer">
+      	<h1>Achived on August 14th 2015</h1>
+      </div>
     </div>
     
     <div data-role="popup" id="popup8">
-      <p>Flower Trophy</p> 
+      <div data-role="header">
+        <h3>Flower Trophy</h3> 
+      </div>
       <a href="#trophies" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="assets/flower.png" style="width:400px;height:400px;">
+      <div data-role="footer">
+      	<h1>Achived on August 27th 2015</h1>
+      </div>
     </div>        
   </div>
   <!--THROPIES POP UPS END-->
+  <div data-role="footer" data-position="fixed">
+    <h1>By MdxLab Ritsumeikan</h1>
+  </div>
   
 </div> 
 <!-- TROPHIES END -->
@@ -515,14 +553,11 @@
   </div>
   
   <div data-role="main" class="ui-content">
-  	<h1 style="text-align:center">
-  		<img src="assets/rits/logoRits.gif">
-  	</h1>
-  	<h3 style="text-align:center">This is the Ritsumeikan BKC TOUR<br>	
+  	<h1 style="text-align:center">Ritsumeikan BKC</h1>
+  	<h3 style="text-align:center">
+  		<img src="assets/rits/logoRits.gif" style="width:300px;">
   		<img src="assets/rits/accessmap.gif" style="width:300px;">
-  		
-  		<br>PLAY THIS ?<br>
-  		<a href="#continuegame" data-transition="slide" class="ui-btn ui-corner-all ui-shadow"><img src="assets/games.png" style="width:70px;"></a>
+  		<a href="#" data-transition="slide" class="ui-btn ui-corner-all ui-shadow"><img src="assets/games.png" style="width:70px;" align="middle">PLAY THIS?</a>
   	</h3>
   </div>
 
@@ -548,11 +583,11 @@
   	<h1 style="text-align:center">
   		Kyoto
   	</h1>
-  	<h3 style="text-align:center">This is the  KYOTO TOUR<br>	
+  	<h3 style="text-align:center">
   		<img src="assets/kyoto/Kyoto.jpg" style="width:300px;">
   		
-  		<br>PLAY THIS ?<br>
-  		<a href="#continuekyoto" data-transition="slide" class="ui-btn ui-corner-all ui-shadow"><img src="assets/games.png" style="width:70px;"></a>
+  		<br><br>
+  		<a href="#continuekyoto" data-transition="slide" class="ui-btn ui-corner-all ui-shadow"><img src="assets/games.png" style="width:70px;" align="middle">PLAY THIS?</a>
   	</h3>
   </div>
 
@@ -573,41 +608,72 @@
   </div>
   
   <div data-role="main" class="ui-content">
-  	<h1 style="text-align:center">Kyoto Tour<br>
-  		<img src="assets/compass.png" style="width:50px;">
+  	<h1 style="text-align:center">Kyoto Tour
+  		<img src="assets/mats.png" style="width:75px;" align="left">
   	</h1>
-  	<p style="text-align:center">You have cleared <b>2/10</b> checkpoints</p>
-  	<a href="#" id='btnNewClue' data-rel="popup" data-position-to="window" class="ui-btn ui-icon-info ui-corner-all ui-shadow ui-btn-inline ui-btn-icon-left">New Clue</a>
-  	<a href="#" id='btnNewPhotoClue'data-rel="popup" data-position-to="window" class="ui-btn ui-icon-camera ui-corner-all ui-shadow ui-btn-inline ui-btn-icon-left">Photo Clue</a>
-  	<a href="#mymap" data-transition="slide" id="lnkCheck" class="ui-btn ui-corner-all ui-shadow ui-btn-inline"><img src="assets/maps.png" style="width:30px;"></a>
-      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline"><img src="assets/stamp.png" style="width:30px;"></a>
-  
+  	<p style="text-align:center">You have cleared <b>6/10</b> checkpoints</p>
+  	
+  	
   	<div data-role="collapsible" data-collapsed="false">
-      <h1><img src="assets/clue.png" style="width:50px;"></h1>
+      <h1><img src="assets/clue.png" style="width:50px;" align="right">Clues</h1>
       <p><div id="clueText">
   	    <ul>
-  			<li>This is one of the largest and oldest temple complexes in Kyoto founded in 778.
-  			
+  			<li>This is one of the largest and oldest temple complexes in Kyoto founded in 778.		
   		</ul>
   	  </div></p>
     </div>
     
     <div data-role="collapsible" data-collapsed="false">
-      <h1><img src="assets/photo.png" style="width:50px;"></h1>
+      <h1><img src="assets/photo.png" style="width:50px;" align="right">Photo Clues</h1>
       <p><div id="photoClue">
   	    <ul>
-  			
   		</ul>
   	  </div></p>
     </div>
-    
- 
-      
-
-       
   </div>
-
+  
+  
+  <!-- CLUES POPUPS -->
+  <div data-role="popup" id="popupclue">
+  	<div data-role="header">
+  		<h3><img src="assets/lupa.png" style="width:50px;" align="middle">New Clue</h3> 
+    </div>
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+    <h1>Do you want to get a new INFO clue (only 3 stars)?</h1>
+    <a href="#" id="btnOkClue" data-rel="back" class="ui-btn ui-corner-all ui-shadow"><img src="assets/starsphere.png" style="width:50px;" align="middle">OK</a>
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow"><img src="assets/goomba.png" style="width:50px;" align="middle">No Thanks</a>     
+    <p>You have <b>25 <img src="assets/stari.png" style="width:20px;">'s</b></p>      
+  </div>   
+  
+  <div data-role="popup" id="popupphotoclue">
+  	<div data-role="header">
+  		<h3><img src="assets/photos.png" style="width:50px;" align="middle">New Photo Clue</h3> 
+    </div>
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+    <h1>Do you want to get a new PHOTO clue (only 5 stars)?</h1>
+    <a href="#" id="btnOkPhotoClue" data-rel="back" class="ui-btn ui-corner-all ui-shadow"><img src="assets/starsphere.png" style="width:50px;" align="middle">OK</a>
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow"><img src="assets/goomba.png" style="width:50px;" align="middle">No Thanks</a>     
+    <p>You have <b>25 <img src="assets/stari.png" style="width:20px;">'s</b></p>      
+  </div>
+  
+  <div data-role="popup" id="popupgpsclue">
+  	<div data-role="header">
+  		<h3><img src="assets/maps.png" style="width:40px;" align="middle">New GPS Clue</h3> 
+    </div>
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+    <h1>Do you want to get a new LOCATION clue (only 7 stars)?</h1>
+    <a href="#mymap" id="btnOkGPSClue" data-transition="slide" class="ui-btn ui-corner-all ui-shadow"><img src="assets/starsphere.png" style="width:50px;" align="middle">OK</a>
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow"><img src="assets/goomba.png" style="width:50px;" align="middle">No Thanks</a>     
+    <p>You have <b>25 <img src="assets/stari.png" style="width:20px;">'s</b></p>      
+  </div>
+  <!--END CLUES POPUPS -->
   <div data-role="footer" data-position="fixed">
+  	<a href="#popupclue" data-rel="popup" data-position-to="window"class="ui-btn ui-corner-all ui-shadow"><img src="assets/lupa.png" style="width:50px;"></a>
+  	<a href="#popupphotoclue" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow"><img src="assets/photos.png" style="width:50px;"></a>
+  	<a href="#popupgpsclue" data-rel="popup" data-position-to="window"  class="ui-btn ui-corner-all ui-shadow"><img src="assets/maps.png" style="width:50px;"></a>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow"><img src="assets/stamp.png" style="width:50px;"></a>
+    <a href="#mainmenu" class="ui-btn ui-corner-all ui-shadow" data-transition="slide" data-direction="reverse"><img src="assets/home.png" style="width:50px;"></a>
+  
     <h1>By MdxLab Ritsumeikan</h1>
   </div>
 </div> 
@@ -619,13 +685,13 @@
 <div data-role="page" id="mymap">
 
   <div data-role="header" data-position="fixed">
-    <a href="#continuegame" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left" data-transition="slide" data-direction="reverse" data-rel="back">Back</a>
     	<h1>My Tour Secrets</h1>
     <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-power ui-btn-icon-left">Exit</a>
   </div>
   
   <div data-role="main" class="ui-content">
-  	<h3 style="text-align:center">My Map <a href="#myMap" id="lnkRefreshMap" class="ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-notext ui-btn-inline">Refresh</a>
+  	<h3 style="text-align:center"><img src="assets/planet.png" style="width:55px;" align="left">My Map <a href="#myMap" id="lnkRefreshMap" class="ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-notext ui-btn-inline">Refresh</a>
   	<br>	
   	</h3>
   	<div id="map"></div>
