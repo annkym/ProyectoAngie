@@ -1,9 +1,5 @@
 user = '[{"usr" : "annkym", "pwd" : "hola123", "name" : "Angie Nakayama"}]';
 points = '[{"place" : "Creation Core", "lat" : "34.979536", "lng" : "135.9643038"},{"place" : "Ritsumeikan", "lat" : "34.9849855", "lng" : "135.9646833"},{"place" : "Minami Kusatsu", "lat" : "35.003747", "lng" : "135.947232"},{"place" : "Aoyama", "lat" : "34.979130", "lng" : "135.970122"},{"place" : "Lawson", "lat" : "34.9946542", "lng" : "135.9501618"}]';
 current= '[{"index" : "3"}]';
-//kyoto = This is one of the largest and oldest temple complexes in Kyoto founded in 778. 
-//		It's located in the hills of eastern Kyoto at the site of a waterfall that is considered sacred. 
-//		This temple has a dozen buildings that are dedicated to a variety of gods and goddesses. 
-//		Its main hall has a large elevated platform 13 meters high for viewing the temple's grounds and the surrounding area. 
-//		The building doesn't contain a single nail yet has stood through earthquakes in the area since 1633. 
-//		It's a national treasure of Japan and is a prime example of the skill of Edo-era Japanese carpenters.
+cluesKyoto = ["This is one of the largest and oldest temple complexes in Kyoto founded in 778" , "It\'s located in the hills of eastern Kyoto at the site of a waterfall that is considered sacred","This temple has a dozen buildings that are dedicated to a variety of gods and goddesses","Its main hall has a large elevated platform 13 meters high for viewing the temple\'s grounds and the surrounding area","The building doesn\'t contain a single nail yet has stood through earthquakes in the area since 1633","It\'s a national treasure of Japan and is a prime example of the skill of Edo-era Japanese carpenters"];
+photoKyoto = ["Kiyomizu1.jpg", "Kiyomizu2.jpg", "Kiyomizu3.jpg"];

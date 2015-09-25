@@ -22,6 +22,15 @@
 		$(document).ready(function(){
 				
 			var name;	
+			var clue = 0;
+			var photo = 0;
+			var checking = false;
+
+			$(document).on("pagecreate","#continuekyoto", addClue);
+			
+			$(document).on("pagecreate","#popupregister", function(){
+					alert("Checando punto");
+			});
 				
 			//Login button
 		    $("#btnLogin").click(function(){
@@ -41,17 +50,24 @@
             $("#lnkRefreshMap").click(myPlace);
             
             //New Clue button
-            $("#btnOkClue").click(function(){
-            		$("#clueText ul").append('<li>It\'s located in the hills of eastern Kyoto at the site of a waterfall that is considered sacred.</li>');
-            		//This clues will be loaded from a file or database
-            });
+            $("#btnOkClue").click(addClue);
             
             //New Photo Clue button
             $("#btnOkPhotoClue").click(function(){
-            		$("#photoClue ul").append('<li><img src="assets/kyoto/Kiyomizu1.jpg" style="width:250px;"></li>');
-            		//This photo clues will be loaded from a file or database
+            	if(photo < photoKyoto.length){
+            		$("#photoClue ul").append("<li><img src='assets/kyoto/"+ photoKyoto[photo] +"' style='width:250px;'></li>");
+            		photo++;
+            	} else {
+				alert("No more photos available for this place\nSorry");
+			}
             });
             
+            $("#btnCheckpoint").click(function(){
+					checking = true;
+					myPlace();
+			});
+            
+            //Validation of register
             $("#btnRegister").click(function(){
 		    	if (($("#newpswd").val() != "") && ( $("#newpswd").val() == $("#newpswd2").val())){
 		    		alert("Welcome " + $("#newname").val());
@@ -68,6 +84,16 @@
             
             
  	//Functions       
+ 		
+ 		function addClue(){
+ 			if(clue < cluesKyoto.length){
+ 				$("#clueText ul").append('<li>' + cluesKyoto[clue]+ '</li>');
+ 				clue++;
+			} else {
+				alert("No more clues available for this place\nSorry");
+			}
+			
+ 		}
  	
  		//Locate my Position with geolocation
  		function myPlace(){
@@ -77,8 +103,8 @@
         
  		//Geolocation On sucess 
         var onSuccess = function(position) {
-        //alert('Latitude: '          + position.coords.latitude          + '\n' +
-        //  'Longitude: '         + position.coords.longitude         + '\n');
+        alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n');
 
           initMap(position.coords.latitude, position.coords.longitude );
         };
@@ -92,6 +118,7 @@
        //Google maps api Map load 	
        var map;
        function initMap(latitude,longitude) {
+       	   alert("Entrando a maps");
        	   map = new google.maps.Map(document.getElementById('map'), {
        	       center: {lat: latitude, lng: longitude},
        	       zoom: 10
@@ -120,7 +147,14 @@
        	   
        	   
        	   var mapDis = Math.round(google.maps.geometry.spherical.computeDistanceBetween(marker.getPosition(), nextPoint));
-       	   
+       	   if(checking){
+       	   	   if(mapDis < 100){
+       	   	   	   $("#checkpointMessage").html("<b>CONGRATULATIONS!!!!!</b><br>This is your new trophy<br> <img src='assets/cat5.png' style='width:200px;height:200px;'> <br>You also won <b>10 <img src='assets/stari.png' style='width:20px;'>'s</b>!!!");
+       	   	   } else {
+       	   	   	   $("#checkpointMessage").html("You have to be less than 100 m. to the place to checkpoint<br>Please try again... ");
+       	   	   }
+       	   	   checking = false;
+       	   } else {
        	   if(mapDis > 1000) {
        	   	   alert("Distance to point is " + mapDis.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " m. \nKeep going!!!");
        	   	   map.setZoom(15);
@@ -164,12 +198,10 @@
        	   	   }
        	   	   
        	   }
-       	   
-       	   
-       	   
-       	   
+       	   }
 
        }
+       
        
  });
 	</script>
@@ -617,8 +649,7 @@
   	<div data-role="collapsible" data-collapsed="false">
       <h1><img src="assets/clue.png" style="width:50px;" align="right">Clues</h1>
       <p><div id="clueText">
-  	    <ul>
-  			<li>This is one of the largest and oldest temple complexes in Kyoto founded in 778.		
+  	    <ul> 					
   		</ul>
   	  </div></p>
     </div>
@@ -666,13 +697,23 @@
     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow"><img src="assets/goomba.png" style="width:50px;" align="middle">No Thanks</a>     
     <p>You have <b>25 <img src="assets/stari.png" style="width:20px;">'s</b></p>      
   </div>
+  
+  
+  <div data-role="popup" id="popupregister"  data-overlay-theme="b">
+  	<div data-role="header">
+  		<h3><img src="assets/stamp.png" style="width:40px;" align="middle">Checkpoint</h3> 
+    </div>
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+    <h3 id="checkpointMessage" style="text-align:center"><br>Checking distance to place...<br> <img src='assets/stamp.png' style='width:200px;height:200px;'> <br></h3>
+  </div>
+  
   <!--END CLUES POPUPS -->
   <div data-role="footer" data-position="fixed">
-  	<a href="#popupclue" data-rel="popup" data-position-to="window"class="ui-btn ui-corner-all ui-shadow"><img src="assets/lupa.png" style="width:50px;"></a>
-  	<a href="#popupphotoclue" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow"><img src="assets/photos.png" style="width:50px;"></a>
-  	<a href="#popupgpsclue" data-rel="popup" data-position-to="window"  class="ui-btn ui-corner-all ui-shadow"><img src="assets/maps.png" style="width:50px;"></a>
-    <a href="#" class="ui-btn ui-corner-all ui-shadow"><img src="assets/stamp.png" style="width:50px;"></a>
-    <a href="#mainmenu" class="ui-btn ui-corner-all ui-shadow" data-transition="slide" data-direction="reverse"><img src="assets/home.png" style="width:50px;"></a>
+  	<a href="#popupclue" data-rel="popup" data-position-to="window"class="ui-btn ui-corner-all ui-shadow"><img src="assets/lupa.png" style="width:30px;"></a>
+  	<a href="#popupphotoclue" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow"><img src="assets/photos.png" style="width:30px;"></a>
+  	<a href="#popupgpsclue" data-rel="popup" data-position-to="window"  class="ui-btn ui-corner-all ui-shadow"><img src="assets/maps.png" style="width:30px;"></a>
+    <a href="#popupregister" id="btnCheckpoint" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow"><img src="assets/stamp.png" style="width:30px;"></a>
+    <a href="#mainmenu" class="ui-btn ui-corner-all ui-shadow" data-transition="slide" data-direction="reverse"><img src="assets/home.png" style="width:30px;"></a>
   
     <h1>By MdxLab Ritsumeikan</h1>
   </div>
