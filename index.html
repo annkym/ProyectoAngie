@@ -118,12 +118,12 @@
        //Google maps api Map load 	
        var map;
        function initMap(latitude,longitude) {
-       	   alert("Entrando a maps");
+       	   //alert("Entrando a maps");
        	   map = new google.maps.Map(document.getElementById('map'), {
        	       center: {lat: latitude, lng: longitude},
        	       zoom: 10
        	   });
-       	   
+       	    //alert("Mapa Generado");
        	   var marker = new google.maps.Marker({
        	       position: {lat: latitude, lng: longitude},
        	   	   map: map,
@@ -133,7 +133,7 @@
        	   var mycurrent = JSON.parse(current);
        	   var nextIndex = mycurrent[0].index;
        	   var mydata = JSON.parse(points);
-		   alert(mydata[nextIndex].place + " " + mydata[nextIndex].lat + " " + mydata[nextIndex].lng);
+		   //alert(mydata[nextIndex].place + " " + mydata[nextIndex].lat + " " + mydata[nextIndex].lng);
        	   
        	   var nextPoint = new google.maps.LatLng(mydata[nextIndex].lat,mydata[nextIndex].lng, true);
        	   
@@ -218,7 +218,7 @@
 
     <div data-role="main" class="ui-content">
   		<div align="center">
-  			<h1>Welcome to My Tour Secrets <br>The Game!!!!<br></h1>
+  			<h1>Welcome to My Tour Secrets</h1>
   			<img src="assets/Map_Mobile.png" alt="My Tour Secrets, The Game!!" style="width:300px;">
   		</div>
   		<a href="#myPopup" data-rel="popup" class="ui-btn ui-corner-all ui-btn ui-icon-user ui-btn-icon-left">Login</a>
